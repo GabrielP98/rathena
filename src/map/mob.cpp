@@ -2793,7 +2793,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			//A Rare Drop Global Announce by Lupus
 			if( mvp_sd && drop_rate <= battle_config.rare_drop_announce ) {
 				char message[128];
-				sprintf (message, msg_txt(NULL,541), mvp_sd->status.name, md->name, it->jname, (float)drop_rate/100);
+				sprintf (message, msg_txt(NULL,541), mvp_sd->status.name, md->name, it->ename.c_str(), (float)drop_rate/100);
 				//MSG: "'%s' won %s's %s (chance: %0.02f%%)"
 				intif_broadcast(message,strlen(message)+1,BC_DEFAULT);
 			}
@@ -2946,7 +2946,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				//A Rare MVP Drop Global Announce by Lupus
 				if(temp<=battle_config.rare_drop_announce) {
 					char message[128];
-					sprintf (message, msg_txt(NULL,541), mvp_sd->status.name, md->name, i_data->jname, temp/100.);
+					sprintf (message, msg_txt(NULL,541), mvp_sd->status.name, md->name, i_data->ename.c_str(), temp/100.);
 					//MSG: "'%s' won %s's %s (chance: %0.02f%%)"
 					intif_broadcast(message,strlen(message)+1,BC_DEFAULT);
 				}
@@ -4528,7 +4528,7 @@ uint64 MobAvailDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asString(node, "Weapon", weapon))
 			return 0;
 
-		struct item_data *item = itemdb_searchname(weapon.c_str());
+		struct item_data *item = itemdb_search_aegisname(weapon.c_str());
 
 		if (item == nullptr) {
 			this->invalidWarning(node["Weapon"], "Weapon %s is not a valid item.\n", weapon.c_str());
@@ -4549,7 +4549,7 @@ uint64 MobAvailDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asString(node, "Shield", shield))
 			return 0;
 
-		struct item_data *item = itemdb_searchname(shield.c_str());
+		struct item_data *item = itemdb_search_aegisname(shield.c_str());
 
 		if (item == nullptr) {
 			this->invalidWarning(node["Shield"], "Shield %s is not a valid item.\n", shield.c_str());
@@ -4572,7 +4572,7 @@ uint64 MobAvailDatabase::parseBodyNode(const YAML::Node &node) {
 
 		struct item_data *item;
 
-		if ((item = itemdb_searchname(head.c_str())) == nullptr) {
+		if ((item = itemdb_search_aegisname(head.c_str())) == nullptr) {
 			this->invalidWarning(node["HeadTop"], "HeadTop %s is not a valid item.\n", head.c_str());
 			return 0;
 		}
@@ -4591,7 +4591,7 @@ uint64 MobAvailDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asString(node, "HeadMid", head))
 			return 0;
 
-		struct item_data *item = itemdb_searchname(head.c_str());
+		struct item_data *item = itemdb_search_aegisname(head.c_str());
 
 		if (item == nullptr) {
 			this->invalidWarning(node["HeadMid"], "HeadMid %s is not a valid item.\n", head.c_str());
@@ -4612,7 +4612,7 @@ uint64 MobAvailDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asString(node, "HeadLow", head))
 			return 0;
 
-		struct item_data *item = itemdb_searchname(head.c_str());
+		struct item_data *item = itemdb_search_aegisname(head.c_str());
 
 		if (item == nullptr) {
 			this->invalidWarning(node["HeadLow"], "HeadLow %s is not a valid item.\n", head.c_str());
@@ -4635,7 +4635,7 @@ uint64 MobAvailDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asString(node, "PetEquip", equipment))
 			return 0;
 
-		struct item_data *item = itemdb_searchname(equipment.c_str());
+		struct item_data *item = itemdb_search_aegisname(equipment.c_str());
 
 		if (item == nullptr) {
 			this->invalidWarning(node["PetEquip"], "PetEquip %s is not a valid item.\n", equipment.c_str());
