@@ -7571,7 +7571,7 @@ enum damage_lv battle_weapon_attack(struct block_list* src, struct block_list* t
 			if (sd->inventory_data[index]) {
 				switch (sd->status.weapon) {
 					case W_BOW:
-						if (sd->inventory_data[index]->look != AMMO_ARROW) {
+						if (sd->inventory_data[index]->look != A_ARROW) {
 							clif_arrow_fail(sd,0);
 							return ATK_NONE;
 						}
@@ -7580,7 +7580,7 @@ enum damage_lv battle_weapon_attack(struct block_list* src, struct block_list* t
 					case W_RIFLE:
 					case W_GATLING:
 					case W_SHOTGUN:
-						if (sd->inventory_data[index]->look != AMMO_BULLET) {
+						if (sd->inventory_data[index]->look != A_BULLET) {
 							clif_skill_fail(sd,0,USESKILL_FAIL_NEED_MORE_BULLET,0);
 							return ATK_NONE;
 						}
@@ -7588,9 +7588,9 @@ enum damage_lv battle_weapon_attack(struct block_list* src, struct block_list* t
 					case W_GRENADE:
 						if (sd->inventory_data[index]->look !=
 #ifdef RENEWAL
-							AMMO_BULLET) {
+							A_BULLET) {
 #else
-							AMMO_GRENADE) {
+							A_GRENADE) {
 #endif
 							clif_skill_fail(sd,0,USESKILL_FAIL_NEED_MORE_BULLET,0);
 							return ATK_NONE;
