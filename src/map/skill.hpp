@@ -1967,6 +1967,7 @@ enum e_skill {
 	NV_BREAKTHROUGH,
 	NV_HELPANGEL,
 	NV_TRANSCENDENCE,
+	WL_READING_SB_READING,
 
 	HLIF_HEAL = 8001,
 	HLIF_AVOID,
@@ -2263,7 +2264,7 @@ void skill_usave_trigger(struct map_session_data *sd);
 /**
  * Warlock
  **/
-enum wl_spheres {
+enum e_wl_spheres {
 	WLS_FIRE = 0x44,
 	WLS_WIND,
 	WLS_WATER,
