@@ -101,7 +101,6 @@ enum e_skill_inf2 : uint8 {
 	INF2_ALLOWONMADO, // Skill that can be used while on Madogear
 	INF2_TARGETMANHOLE, // Skill that can be used to target while under SC__MANHOLE effect
 	INF2_TARGETHIDDEN, // Skill that affects hidden targets
-	INF2_INCREASEGLOOMYDAYDAMAGE, // Skill that affects SC_GLOOMYDAY_SK
 	INF2_INCREASEDANCEWITHWUGDAMAGE, // Skill that is affected by SC_DANCEWITHWUG
 	INF2_IGNOREWUGBITE, // Skill blocked by RA_WUGBITE
 	INF2_IGNOREAUTOGUARD , // Skill is not blocked by SC_AUTOGUARD (physical-skill only)
@@ -1695,15 +1694,9 @@ enum e_skill {
 	WM_LESSON = 2412,
 	WM_METALICSOUND,
 	WM_REVERBERATION,
-<<<<<<< HEAD
 	WM_REVERBERATION_MELEE, // Removed on kRO
 	WM_REVERBERATION_MAGIC, // Removed on kRO
 	WM_DOMINION_IMPULSE, // Removed on kRO
-=======
-	WM_REVERBERATION_MELEE,
-	WM_REVERBERATION_MAGIC,
-	WM_DOMINION_IMPULSE,
->>>>>>> parent of fde031fb1 (Job Improvement Project - Minstrel/Wanderer (#4701))
 	WM_SEVERE_RAINSTORM,
 	WM_POEMOFNETHERWORLD,
 	WM_VOICEOFSIREN,
